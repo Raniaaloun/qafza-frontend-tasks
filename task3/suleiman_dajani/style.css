@@ -1,0 +1,26 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #0d1321;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.links {
+  color: rgb(212, 210, 210);
+  text-decoration: none;
+}

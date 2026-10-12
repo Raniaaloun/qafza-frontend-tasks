@@ -51,3 +51,18 @@ body {
 .nav a:hover {
   color: #ffffff;
 }
+
+/* Footer */
+.site-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  background-color: #7c4e19;
+  color: #c7cde0;
+  font-size: 14px;
+}
+
+.visually-hidden {
+  display: none;
+}

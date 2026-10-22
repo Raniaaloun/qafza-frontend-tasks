@@ -1,0 +1,737 @@
+:root {
+    --colorBg: #0b1120;
+    --colorSurface: #111a2e;
+    --colorSurfaceHover: #17233b;
+    --colorPrimary: #60a5fa;
+    --colorPrimaryHover: #3b82f6;
+    --colorText: #f1f5f9;
+    --colorTextMuted: #94a3b8;
+    --colorBorder: #26344b;
+
+    --fontMain: Arial, Helvetica, sans-serif;
+
+    --containerWidth: 1120px;
+    --sectionSpacing: 100px;
+    --borderRadius: 16px;
+
+    --transitionFast: 180ms ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    min-width: 320px;
+    background-color: var(--colorBg);
+    color: var(--colorText);
+    font-family: var(--fontMain);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+a,
+input,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--colorPrimary);
+    outline-offset: 4px;
+}
+
+::selection {
+    background-color: var(--colorPrimary);
+    color: var(--colorBg);
+}
+
+
+.navBar,
+.hero,
+.projectsSection,
+.contactSection,
+.contactCard,
+.siteFooter {
+    width: 100%;
+}
+
+.navBar,
+.projectsContainer,
+.contactContainer,
+.footerContainer {
+    width: min(100% - 48px, var(--containerWidth));
+    margin-inline: auto;
+}
+
+.projectsSection,
+.contactSection,
+.contactCard {
+    padding-block: var(--sectionSpacing);
+}
+
+.navBar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    padding: 20px max(24px, calc((100% - var(--containerWidth)) / 2));
+
+    background-color: rgb(11 17 32 / 90%);
+    border-bottom: 1px solid var(--colorBorder);
+    backdrop-filter: blur(16px);
+}
+
+.navBrand,
+.name {
+    color: var(--colorText);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.navLinks a,
+.footerLinks a,
+.socialLinks a {
+    color: var(--colorTextMuted);
+    transition: color var(--transitionFast);
+}
+
+.navLinks a:hover,
+.footerLinks a:hover,
+.socialLinks a:hover {
+    color: var(--colorPrimary);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 64px;
+
+    width: min(100% - 48px, var(--containerWidth));
+    min-height: 650px;
+    margin-inline: auto;
+    padding-block: 80px;
+}
+
+.leftSide {
+    min-width: 0;
+}
+
+.introduction {
+    max-width: 620px;
+}
+
+.introduction h1 {
+    margin-bottom: 24px;
+    font-size: clamp(2.75rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -3px;
+}
+
+.introduction p {
+    max-width: 520px;
+    margin-bottom: 32px;
+    color: var(--colorTextMuted);
+    font-size: 1.125rem;
+    line-height: 1.9;
+}
+
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.heroCta,
+.submitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 24px;
+
+    border: 1px solid var(--colorPrimary);
+    border-radius: 10px;
+    background-color: var(--colorPrimary);
+    color: #08111f;
+
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color var(--transitionFast),
+        border-color var(--transitionFast),
+        transform var(--transitionFast);
+}
+
+.heroCta:hover,
+.submitButton:hover {
+    border-color: var(--colorPrimaryHover);
+    background-color: var(--colorPrimaryHover);
+    transform: translateY(-2px);
+}
+
+.heroSecondaryCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 24px;
+
+    border: 1px solid var(--colorBorder);
+    border-radius: 10px;
+    color: var(--colorText);
+
+    font-weight: 600;
+    transition:
+        background-color var(--transitionFast),
+        border-color var(--transitionFast);
+}
+
+.heroSecondaryCta:hover {
+    border-color: var(--colorPrimary);
+    background-color: var(--colorSurface);
+}
+
+.rightSide {
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+}
+
+.heroImage {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+
+    border: 1px solid var(--colorBorder);
+    border-radius: 24px;
+    background-color: var(--colorSurface);
+    box-shadow: 0 24px 70px rgb(0 0 0 / 30%);
+}
+
+
+.projectsSection {
+    border-top: 1px solid var(--colorBorder);
+    background-color: #0e1627;
+}
+
+.projectsContainer h2,
+.contactContainer h2 {
+    margin-bottom: 16px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 240px;
+    padding: 28px;
+
+    border: 1px solid var(--colorBorder);
+    border-radius: var(--borderRadius);
+    background-color: var(--colorSurface);
+
+    transition:
+        transform var(--transitionFast),
+        border-color var(--transitionFast),
+        background-color var(--transitionFast);
+}
+
+.projectCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--colorPrimary);
+    background-color: var(--colorSurfaceHover);
+}
+
+.projectCard h3 {
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.projectCard p {
+    margin-bottom: 24px;
+    color: var(--colorTextMuted);
+    line-height: 1.8;
+}
+
+.projectCard a {
+    margin-top: auto;
+    color: var(--colorPrimary);
+    font-weight: 700;
+}
+
+.projectCard a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.contactSection,
+.contactCard {
+    background-color: var(--colorBg);
+}
+
+.contactContainer {
+    max-width: 720px;
+}
+
+.contactContainer>p {
+    margin-bottom: 32px;
+    color: var(--colorTextMuted);
+}
+
+.contactForm,
+.contactCard form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label,
+.contactCard label {
+    color: var(--colorText);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.formGroup input,
+.formGroup select,
+.contactCard input,
+.contactCard select {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+
+    border: 1px solid var(--colorBorder);
+    border-radius: 10px;
+    background-color: var(--colorSurface);
+    color: var(--colorText);
+
+    transition: border-color var(--transitionFast);
+}
+
+.formGroup input::placeholder,
+.contactCard input::placeholder {
+    color: #718096;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.contactCard input:focus,
+.contactCard select:focus {
+    border-color: var(--colorPrimary);
+    outline: none;
+}
+
+.formGroup select:invalid,
+.contactCard select:invalid {
+    color: var(--colorTextMuted);
+}
+
+.formActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.resetButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 24px;
+
+    border: 1px solid var(--colorBorder);
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--colorText);
+
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color var(--transitionFast),
+        border-color var(--transitionFast);
+}
+
+.resetButton:hover {
+    border-color: var(--colorTextMuted);
+    background-color: var(--colorSurface);
+}
+
+
+.siteFooter {
+    padding-block: 40px 24px;
+    border-top: 1px solid var(--colorBorder);
+    background-color: #080d18;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+}
+
+.footerBrand {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footerLinks,
+.socialLinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.footerCopyright {
+    width: 100%;
+    padding-top: 24px;
+    border-top: 1px solid var(--colorBorder);
+    color: var(--colorTextMuted);
+    font-size: 0.875rem;
+}
+
+
+@media (max-width: 900px) {
+    :root {
+        --sectionSpacing: 76px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+        gap: 36px;
+        min-height: 560px;
+    }
+
+    .introduction h1 {
+        letter-spacing: -2px;
+    }
+
+    .projectsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --sectionSpacing: 60px;
+    }
+
+    .navBar,
+    .projectsContainer,
+    .contactContainer,
+    .footerContainer {
+        width: min(100% - 32px, var(--containerWidth));
+    }
+
+    .navBar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .navLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+        min-height: auto;
+        padding-block: 64px;
+    }
+
+    .leftSide {
+        order: 1;
+    }
+
+    .rightSide {
+        order: 0;
+    }
+
+    .heroImage {
+        max-width: 280px;
+    }
+
+    .introduction h1 {
+        font-size: clamp(2.5rem, 11vw, 3.5rem);
+        letter-spacing: -1.5px;
+    }
+
+    .introduction p {
+        font-size: 1rem;
+    }
+
+    .heroActions {
+        align-items: stretch;
+    }
+
+    .heroCta,
+    .heroSecondaryCta {
+        flex: 1;
+    }
+
+    .projectsGrid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .projectCard {
+        min-height: 210px;
+        padding: 24px;
+    }
+
+    .formActions {
+        flex-direction: column;
+    }
+
+    .submitButton,
+    .resetButton {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img {
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .navBar {
+        gap: 16px;
+    }
+
+    .navLinks {
+        gap: 18px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+        min-height: auto;
+        padding-block: 48px;
+    }
+
+    .leftSide {
+        order: 1;
+    }
+
+    .rightSide {
+        order: 0;
+    }
+
+    .introduction {
+        max-width: 100%;
+    }
+
+    .introduction h1 {
+        font-size: clamp(2.25rem, 8vw, 3.5rem);
+        line-height: 1.12;
+        overflow-wrap: anywhere;
+    }
+
+    .introduction p {
+        font-size: 1rem;
+    }
+
+    .heroImage {
+        width: min(100%, 300px);
+    }
+
+    .projectsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .navBar {
+        padding: 16px;
+    }
+
+    .navBrand,
+    .name {
+        font-size: 1.1rem;
+    }
+
+    .navLinks {
+        width: 100%;
+        gap: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        width: calc(100% - 32px);
+        padding-block: 36px 48px;
+    }
+
+    .introduction h1 {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+        letter-spacing: -1px;
+    }
+
+    .heroActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .heroCta,
+    .heroSecondaryCta {
+        width: 100%;
+    }
+
+    .heroImage {
+        max-width: 240px;
+        border-radius: 18px;
+    }
+
+    .projectsSection,
+    .contactSection,
+    .contactCard {
+        padding-block: 48px;
+    }
+
+    .projectsGrid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-top: 28px;
+    }
+
+    .projectCard {
+        min-height: 190px;
+        padding: 22px;
+    }
+
+    .projectsContainer h2,
+    .contactContainer h2 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    .contactForm,
+    .contactCard form {
+        gap: 18px;
+    }
+
+    .formActions {
+        flex-direction: column;
+    }
+
+    .submitButton,
+    .resetButton {
+        width: 100%;
+    }
+
+    .footerLinks,
+    .socialLinks {
+        gap: 16px;
+    }
+
+    .footerCopyright {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .navLinks {
+        gap: 10px;
+        font-size: 0.82rem;
+    }
+
+    .hero {
+        width: calc(100% - 24px);
+    }
+
+    .introduction h1 {
+        font-size: 2rem;
+    }
+
+    .projectCard {
+        padding: 18px;
+    }
+}
